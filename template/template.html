@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/section1.css">
+    <link rel="stylesheet" href="css/section2.css"> 
+    <link rel="stylesheet" href="css/section3.css">----->
+    <title>My Website</title>
+    <style>
+
+        ::-webkit-scrollbar {
+    display:;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial;
+    padding: 10px;
+    background: #ebebeb;
+}
+
+.header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 0 8px rgba(70, 70, 70, 0.1);
+}
+
+.header h1 {
+    font-size: 50px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    z-index: 5;
+    transition: .5s;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#search-div {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topnav form {
+    display: flex;
+    padding: .5em;
+}
+
+.topnav form input {
+    border: solid 3px #fff;
+    box-sizing: border-box;
+    height: 2em;
+    flex-direction: row;
+    outline: solid #fc0 0;
+    padding: .5em;
+    width: 15em;
+    z-index: 1;
+}
+
+.topnav form button {
+    height: inherit;
+    margin: 0;
+    outline: none;
+    border: none;
+}
+
+.topnav form button i {
+    padding: 1px 4px;
+}
+
+.topnav form button:hover {
+    background-color: rgb(192, 192, 192);
+}
+
+.leftcolumn {
+    float: left;
+    width: 75%;
+}
+
+.rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+#row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    padding: 15px;
+    z-index: 99;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 0 8px rgba(70, 70, 70, 0.3);
+}
+
+.f-block1,
+.f-block2,
+.f-block3 {
+    width: 30%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+    text-align: left;
+    padding: 10px 15px;
+    transition: 0.1s;
+}
+
+.f-block1:hover,
+.f-block2:hover,
+.f-block3:hover {
+    background-color: rgb(240, 240, 240);
+    transform: scale(1.04);
+}
+
+.f-block1 h2,
+.f-block2 h2,
+.f-block3 h2 {
+    color: rgb(90, 90, 90);
+}
+
+.f-block3 h2 {
+    margin: 10px 0 0 0;
+}
+
+.icons {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 20px 0 5px 0;
+}
+
+.icons i {
+    color: rgb(92, 104, 116);
+    font-size: 24px;
+}
+
+.icons i:hover {
+    color: rgb(56, 65, 73);
+    transform: scale(1.2);
+}
+
+.f-block2 ul li {
+    margin: 10px;
+}
+
+.f-block2 ul li:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+.l-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tags {
+    background-color: rgb(182, 182, 182);
+    padding: 2px 5px;
+    margin: 5px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.tags:hover {
+    background-color: slategrey;
+    transform: scale(1.1);
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+    .s-card {
+        flex-wrap: nowrap;
+    }
+    
+}
+
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    
+    .topnav {
+        flex-direction: column;
+    }
+    .footer {
+        flex-direction: column;
+    }
+    .f-block1,
+    .f-block2,
+    .f-block3 {
+        width: 100%;
+    }
+    .s-card {
+        flex-wrap: wrap;
+    }
+    .s-card:nth-child(2),
+    .s-card:nth-child(4) {
+        display: block;
+    }
+    .s-card:nth-child(2) .s-card-img,
+    .s-card:nth-child(4) .s-card-img {
+        position: relative;
+        right: 50px;
+    
+    }
+    .formhead{
+        display: none;
+    }
+    .formstyle{
+        width: 100%;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+/* Right column */
+
+.section-head {
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    place-content: center;
+    background-color: white;
+    margin: 20px 0 0 0;
+    box-shadow: -2px 2px 6px rgba(70, 70, 70, 0.4);
+}
+
+.section-head h1 {
+    margin: 5px;
+    font-size: 40px;
+    opacity: .7;
+}
+
+.card {
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: -2px 2px 8px rgba(70, 70, 70, 0.4);
+}
+
+.cardimg {
+    display: flex;
+    align-items: flex-end;
+    transition: 0.4s ease-out;
+}
+
+.cardimg:hover .info1 {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.img1 {
+    width: 100%;
+    height: auto;
+}
+
+.info1 {
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    padding: 1.5rem;
+    color: white;
+    margin: 0;
+}
+
+.info1 h5 {
+    margin: 0;
+}
+
+.info1 span {
+    margin: 0;
+}
+
+.card-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-head h2 {
+    font-family: 'Poppins', sans-serif;
+    margin: 5px;
+}
+
+.card-head h5 {
+    font-family: 'Poppins', sans-serif;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    opacity: .6;
+}
+
+.card p {
+    text-indent: 30px;
+    margin: 5px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.read-more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin: 15px 0 0 0;
+}
+
+.read-more button {
+    padding: 10px 15px;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid rgb(199, 199, 199);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-weight: 550;
+}
+
+.read-more button:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.card-1 {
+    background-color: white;
+    padding: 0px;
+    margin-top: 20px;
+    box-shadow: -2px 2px 8px rgba(70, 70, 70, 0.4);
+}
+
+.card-1 img {
+    padding: 0;
+    width: 100%;
+}
+
+.card-1 img:hover {
+    transform: scale(1.01);
+    box-shadow: -2px 2px 8px rgba(70, 70, 70, 0.4);
+}
+
+.card-1-con {
+    padding: 10px 20px;
+}
+
+.card-1-con h3 {
+    font-weight: 250;
+    margin: 0;
+}
+
+.card-1-con p {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin: 5px 0;
+}
+
+.card-2 {
+    background-color: white;
+    margin-top: 20px;
+    box-shadow: -2px 2px 8px rgba(70, 70, 70, 0.4);
+}
+
+.p-head {
+    padding: 5px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.p-head h3 {
+    margin: 10px;
+}
+
+.p-list {
+    padding: 0;
+    margin: 0;
+}
+
+.p-list .p-list-items {
+    padding: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.p-list hr {
+    border: .01px solid rgba(196, 196, 196, 0.5);
+    margin: 0;
+}
+
+.p-list-items:hover {
+    background: rgb(240, 240, 240);
+    transform: scale(1.01);
+    box-shadow: 0px 2px 8px rgba(70, 70, 70, 0.4);
+}
+
+.p-list-para {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 6px 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.p-list-para span {
+    font-size: 13px;
+}
+.section-2 .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.s-card {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0;
+}
+
+.s-card:nth-child(2) {
+    flex-flow: row-reverse;
+}
+
+.s-card:nth-child(4) {
+    flex-flow: row-reverse;
+}
+
+.s-card-img,
+.s-card-content {
+    margin: 0;
+    padding: 0;
+}
+
+figure {
+    width: 250px;
+    height: 300px;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    padding: 25px 19px 85px 19px;
+    transform: rotate(10deg) scale(0.7);
+    transition: .3s;
+}
+
+figure:hover {
+    transform: rotate(0deg) scale(0.7);
+}
+
+figure img {
+    width: 100%;
+}
+
+figcaption {
+    font-size: 25px;
+    text-align: center;
+    color: #2c2c2c;
+    margin-top: 10px;
+}
+
+figure:before,
+figure:after {
+    content: "";
+    position: absolute;
+    height: 55px;
+    width: 180px;
+    background-color: rgba(142, 142, 142, 0.8);
+    transform: rotate(-40deg);
+}
+
+figure:before {
+    top: 3px;
+    left: -55px;
+}
+
+figure:after {
+    bottom: 3px;
+    right: -60px;
+}
+
+hr {
+    border: .01px solid rgba(196, 196, 196, 0.5);
+    margin: 0;
+}
+main {
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    background: #fff3d1;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+}
+
+.formhead img {
+    height: inherit;
+    width: 100%;
+    opacity: .7;
+}
+
+.formhead {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    width: 50%;
+}
+
+.headline {
+    position: absolute;
+    width: auto;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Poppins', sans-serif;
+}
+
+.formstyle {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: inherit;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+.form1 {
+    overflow: hidden;
+    padding: 10%;
+    position: relative;
+}
+
+.formstyle h2 {
+    background: #4D4D4D;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.formstyle input[type="text"],
+.formstyle input[type="date"],
+.formstyle input[type="datetime"],
+.formstyle input[type="email"],
+.formstyle input[type="number"],
+.formstyle input[type="search"],
+.formstyle input[type="time"],
+.formstyle input[type="url"],
+.formstyle input[type="password"],
+.formstyle textarea,
+.formstyle select {
+    box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    height: 45px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.formstyle textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+.form1 .read-more {
+    flex-direction: row;
+}
+    </style>
+</head>
+
+<body>
+    <div id="container" onScroll="myFunction()">
+
+
+        <div class="header">
+            <h1>My Website</h1>
+            <p>i'm a fullstack developer!</p>
+        </div>
+
+        <div class="topnav" id="navbar">
+            <div>
+                <a href="#s-home" id="home">Home</a>
+                <a href="#s-about" id="about">About</a>
+                <a href="#s-contact" id="contact">Contact </a>
+            </div>
+           
+        </div>
+
+        <div class="section-head" id="s-home">
+            <h1>Home</h1>
+        </div>
+
+        <section id="section-1">
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card">
+                        <div class="cardimg">
+                            <img src="https://www.w3schools.com/w3images/woods.jpg" alt="" class="img1">
+                            <div class="info1">
+                                <h5>Mountain</h5>
+                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            </div>
+                        </div>
+                        <div class="card-head">
+                            <h2>Our Blogs</h2>
+                            <h5>Title description</h5>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem laborum cum ipsa totam dolores excepturi non, architecto animi rem voluptates? Reiciendis impedit quo ipsam esse a, fugiat excepturi nobis vitae?</p>
+                        <div class="read-more">
+                            <button>Read more</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardimg">
+                            <img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" alt="" class="img1">
+                            <div class="info1">
+                                <h5>Mountain</h5>
+                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            </div>
+                        </div>
+
+                        <div class="card-head">
+                            <h2>Our Blogs</h2>
+                            <h5>Title description</h5>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem laborum cum ipsa totam dolores excepturi non, architecto animi rem voluptates? Reiciendis impedit quo ipsam esse a, fugiat excepturi nobis vitae?</p>
+                        <div class="read-more">
+                            <button>Read more</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightcolumn">
+                    <div class="card-1">
+                        <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGljfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="">
+                        <div class="card-1-con">
+                            <h3>About me</h3>
+                            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+                        </div>
+                    </div>
+                    <div class="card-2">
+                        <div class="p-head">
+                            <h3>Popular Post</h3>
+                        </div>
+                        <div id="p-list">
+                            <ul class="p-list">
+                                <hr>
+                                <li class="p-list-items">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Lh85m8FapdUJ3nb4uFN2nkBHsurugRjJ2g&usqp=CAU" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                                    <div class="p-list-para">
+                                        <span>Lorem</span>
+                                        <span>Sed mattis nunc</span>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li class="p-list-items">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Lh85m8FapdUJ3nb4uFN2nkBHsurugRjJ2g&usqp=CAU" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                                    <div class="p-list-para">
+                                        <span>Lorem</span>
+                                        <span>Sed mattis nunc</span>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li class="p-list-items">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Lh85m8FapdUJ3nb4uFN2nkBHsurugRjJ2g&usqp=CAU" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                                    <div class="p-list-para">
+                                        <span>Lorem</span>
+                                        <span>Sed mattis nunc</span>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li class="p-list-items">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Lh85m8FapdUJ3nb4uFN2nkBHsurugRjJ2g&usqp=CAU" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                                    <div class="p-list-para">
+                                        <span>Lorem</span>
+                                        <span>Sed mattis nunc</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="section-head" id="s-about">
+            <h1>About Us</h1>
+        </div>
+
+        <section class="section-2">
+            <div class="row">
+                <div class="s-card">
+                    <div class="s-card-img">
+                        <figure>
+                            <img src="https://media.istockphoto.com/photos/colored-powder-explosion-abstract-closeup-dust-on-backdrop-colorful-picture-id1072093690?k=6&m=1072093690&s=612x612&w=0&h=Eyk67XBt4sr3Bk1MubM6dHpvEVNICX4L7FumWhcTwuY=" alt="something">
+                            <figcaption>Frontend</figcaption>
+                        </figure>
+                    </div>
+                    <div class="s-card-content">
+                        <h2>Lorem ipsum</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo ratione totam soluta facilis dolore reprehenderit dolores laboriosam quo cumque quod vero quaerat ex, sint consectetur. Quae non dignissimos ea.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="s-card">
+                    <div class="s-card-img">
+                        <figure>
+                            <img src="https://media.istockphoto.com/photos/colored-powder-explosion-abstract-closeup-dust-on-backdrop-colorful-picture-id1072093690?k=6&m=1072093690&s=612x612&w=0&h=Eyk67XBt4sr3Bk1MubM6dHpvEVNICX4L7FumWhcTwuY=" alt="something">
+                            <figcaption>Frontend</figcaption>
+                        </figure>
+                    </div>
+                    <div class="s-card-content">
+                        <h2>Lorem ipsum</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo ratione totam soluta facilis dolore reprehenderit dolores laboriosam quo cumque quod vero quaerat ex, sint consectetur. Quae non dignissimos ea.
+                        </p>
+                    </div>
+                </div>
+                <div class="s-card">
+                    <div class="s-card-img">
+                        <figure>
+                            <img src="https://media.istockphoto.com/photos/colored-powder-explosion-abstract-closeup-dust-on-backdrop-colorful-picture-id1072093690?k=6&m=1072093690&s=612x612&w=0&h=Eyk67XBt4sr3Bk1MubM6dHpvEVNICX4L7FumWhcTwuY=" alt="something">
+                            <figcaption>Frontend</figcaption>
+                        </figure>
+                    </div>
+                    <div class="s-card-content">
+                        <h2>Lorem ipsum</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo ratione totam soluta facilis dolore reprehenderit dolores laboriosam quo cumque quod vero quaerat ex, sint consectetur. Quae non dignissimos ea.
+                        </p>
+                    </div>
+                </div>
+                <div class="s-card">
+                    <div class="s-card-img">
+                        <figure>
+                            <img src="https://media.istockphoto.com/photos/colored-powder-explosion-abstract-closeup-dust-on-backdrop-colorful-picture-id1072093690?k=6&m=1072093690&s=612x612&w=0&h=Eyk67XBt4sr3Bk1MubM6dHpvEVNICX4L7FumWhcTwuY=" alt="something">
+                            <figcaption>Frontend</figcaption>
+                        </figure>
+                    </div>
+                    <div class="s-card-content">
+                        <h2>Lorem ipsum</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo ratione totam soluta facilis dolore reprehenderit dolores laboriosam quo cumque quod vero quaerat ex, sint consectetur. Quae non dignissimos ea.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <div class="section-head" id="s-contact">
+            <h1>Contact Us</h1>
+        </div>
+        <section class="section-3">
+            <main>
+                
+                <div class="formstyle">
+                    <h2> say HI!</h2>
+                    <form class="form1">
+                        <input type="text" name="field1" placeholder="Your Name" />
+                        <input type="email" name="field2" placeholder="What you do!" />
+                        <input type="url" name="field3" placeholder="What are you looking for!" />
+                        <textarea placeholder="Any message for us?" onkeyup="adjust_textarea(this)"></textarea>
+                        <div class="read-more">
+                            <button>Send!</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </section>
+
+        <div class="footer">
+            <div class="f-block1">
+                <div class="icons">
+                    <i class="fa fa-facebook-official icon"></i>
+                    <i class="fa fa-instagram icon"></i>
+                    <i class="fa fa-snapchat icon"></i>
+                    <i class="fa fa-pinterest-p icon"></i>
+                    <i class="fa fa-twitter icon"></i>
+                    <i class="fa fa-linkedin icon"></i>
+                </div>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                <p><b>©2021 Portfolio</b> </a>
+                </p>
+            </div>
+
+            <div class="f-block2">
+                <h2>SOME BLOG POSTS</h2>
+                <ul class="p-list">
+                    <li class="p-list-items">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Lh85m8FapdUJ3nb4uFN2nkBHsurugRjJ2g&usqp=CAU" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <div class="p-list-para">
+                            <span>Lorem</span>
+                            <span>Sed mattis nunc</span>
+                        </div>
+                    </li>
+                    <li class="p-list-items">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Lh85m8FapdUJ3nb4uFN2nkBHsurugRjJ2g&usqp=CAU" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <div class="p-list-para">
+                            <span>Lorem</span>
+                            <span>Sed mattis nunc</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="f-block3">
+                <h2>POPULAR TAGS</h2>
+                <p class="l-tags">
+                    <span class="tags">Coding</span>
+                    <span class="tags">Travel</span>
+                    <span class="tags">Blogs</span>
+                    <span class="tags">Python</span>
+                    <span class="tags">Freelancing</span>
+                    <span class="tags">Frontend</span>
+                    <span class="tags">Web Development</span>
+                    <span class="tags">Portfolio</span>
+                    <span class="tags">Hosting</span>
+                    <span class="tags">Programming</span>
+                </p>
+            </div>
+        </div>
+
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        
+    </div>
+
+    <script>
+        
+
+        window.onscroll = function() {
+
+        var mybutton = document.getElementById("myBtn");
+
+
+            if (document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+
+        
+
+       
+    </script>
+
+</body>
+
+</html>
